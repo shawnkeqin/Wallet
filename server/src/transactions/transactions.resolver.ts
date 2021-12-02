@@ -1,5 +1,6 @@
 import { Resolver, Query, Mutation, Args, Subscription } from '@nestjs/graphql';
 import { TransactionsService } from './transactions.service';
+import { UpdateTransactionInput } from './dto/transaction.input';
 import { Transaction } from './entities/transaction.entity';
 
 
@@ -12,6 +13,14 @@ export class TransactionsResolver {
       @Query(() => [Transaction], { name: 'transactions' })
       findAll() {
         return this.transactionsService.findAll();
+      }
+
+      @Mutation(() => [Transaction])
+      updateTransaction(
+        @Args('updateInput')
+        updateInput: UpdateTransactionInput,
+      ) {
+        return this.transactionsService.update(updateInput);
       }
 
 }
