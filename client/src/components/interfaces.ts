@@ -8,3 +8,10 @@ export interface ITransaction {
     createdAt: string;
     updatedAt: string;
   }
+
+  export interface IUpdateTransactionInput {
+    updateInput: {
+      merchant_name: string;
+      isFollowed: boolean;
+    }
+  }
