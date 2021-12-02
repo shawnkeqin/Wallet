@@ -1,5 +1,4 @@
 import { InputType, Field } from '@nestjs/graphql';
-// @ts-ignore
 import { Transaction } from '../entities/transaction.entity';
 
 @InputType()
