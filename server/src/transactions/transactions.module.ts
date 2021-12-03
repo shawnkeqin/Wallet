@@ -7,7 +7,14 @@ import { HttpModule } from '@nestjs/axios';
 import { PubSub } from 'graphql-subscriptions';
 
 @Module({
-  imports: [],
-  providers: [TransactionsResolver, TransactionsService],
+  imports: [HttpModule, TypeOrmModule.forFeature([Transaction])],
+  providers: [
+    TransactionsResolver,
+    TransactionsService,
+    {
+      provide: 'PUB_SUB',
+      useValue: new PubSub(),
+    },
+  ],
 })
 export class TransactionsModule {}
