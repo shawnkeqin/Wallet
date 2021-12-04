@@ -5,6 +5,7 @@ import {ApolloCache, DefaultContext, useMutation, useQuery, useSubscription} fro
 import {TRANSACTIONS_QUERY, TRANSACTIONS_SUBSCRIPTION, UPDATE_TRANSACTION_MUTATION} from "./graphql";
 import {ITransaction, IUpdateTransactionInput} from "./interfaces";
 import {columns} from "./columns";
+import Loading from "../LoadingComponent/Loading";
 import ErrorBoundary from "antd/lib/alert/ErrorBoundary";
 import {notification} from 'antd';
 
@@ -25,6 +26,7 @@ function Transactions() {
       const {data: subscriptionData} = useSubscription<{ transactionsAdded: ITransaction[] }>(TRANSACTIONS_SUBSCRIPTION);
     
       const [data, setData] = React.useState<ITransaction[]>([]);
+      const [isLoading, setIsLoading] = React.useState<boolean>(false);
       const [error, setError] = React.useState<any>();
     
       React.useEffect(() => {
@@ -53,11 +55,16 @@ function Transactions() {
         }
       }, [subscriptionData]);
     
-
+      React.useEffect(() => {
+        setIsLoading(queryLoading || mutationLoading);
+      }, [queryLoading, mutationLoading]);
       React.useEffect(() => {
         setError(queryError || mutationError);
       }, [queryError, mutationError]);
 
+      if (!data.length && isLoading) {
+        return <Loading/>;
+      }
       const bezosRelatedTransactions = data.filter(item => item.isFollowed);
       const total = data.reduce((prev, curr) => prev + curr.amount, 0);
       const bezosTotal = bezosRelatedTransactions.reduce((prev, curr) => prev + curr.amount, 0);
@@ -82,6 +89,7 @@ function Transactions() {
         columns={columns(updateTransaction)}
         dataSource={data.map((item, index) => ({...item, key: index}))}
       />
+        {isLoading && <Loading/>}
         </div>
       );
   }
