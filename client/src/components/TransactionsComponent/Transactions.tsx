@@ -6,10 +6,21 @@ import {TRANSACTIONS_QUERY, TRANSACTIONS_SUBSCRIPTION, UPDATE_TRANSACTION_MUTATI
 import {ITransaction, IUpdateTransactionInput} from "./interfaces";
 import {columns} from "./columns";
 import Loading from "../LoadingComponent/Loading";
+import { Typography } from 'antd';
 import ErrorBoundary from "antd/lib/alert/ErrorBoundary";
 import {notification} from 'antd';
 
+const spacing = {
+    display: 'inline-block',
+    margin: '10px'
+}
+
+const tableStyle = {
+    margin:'20px'
+}
+
 function Transactions() {
+    const { Title } = Typography;
     const {
         loading: queryLoading,
         error: queryError,
@@ -70,25 +81,35 @@ function Transactions() {
       const bezosTotal = bezosRelatedTransactions.reduce((prev, curr) => prev + curr.amount, 0);
       return (
         <div className="App">
-          <Row>
-            <Col>
-              <Card>
-                Percentage: {Math.round(bezosTotal / total * 10000) / 100}%
+        <div>
+        <div style={spacing}>
+              <Card size="small">
+              Percentage Spent (On Bezos-related Companies): 
+              <Title level={3}>
+            {Math.round(bezosTotal / total * 10000) / 100}%
+                </Title>
               </Card>
-            </Col>
-            <Col>
-              <Card>
-                Total: {bezosTotal.toFixed(2)}$
+              </div>
+              
+              <div style={spacing}>
+              <Card size="small">
+              Amount Spent (On Bezos-related Companies): 
+              <Title level={3}>
+                Total: ${bezosTotal.toFixed(2)}
+                </Title>
               </Card>
-            </Col>
-          </Row>
+              </div>
+            </div>
+      
           {error && <ErrorBoundary message='Graphql Error' description='Graphql Error'>
             <div>{JSON.stringify(error)}</div>
           </ErrorBoundary>}
+          <div style={tableStyle}> 
           <Table
         columns={columns(updateTransaction)}
         dataSource={data.map((item, index) => ({...item, key: index}))}
       />
+      </div>
         {isLoading && <Loading/>}
         </div>
       );
