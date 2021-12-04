@@ -51,12 +51,18 @@ Once done, add config as per .env.example file in client folder, then run to get
 npm start 
 ```
 
-## Testing
+## Unit & Integration Tests
 
-Run the following command in the server folder:
+Run the following command in the server folder for Unit Testing:
 
 ```
 npm run test:watch 
+```
+
+Run the following command in the server folder for Integration Testing:
+
+```
+npm run test:e2e
 ```
 
 ## Technologies used:
