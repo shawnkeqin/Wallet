@@ -4,6 +4,7 @@ import {Card, Col, Row, Table} from 'antd';
 import {ApolloCache, DefaultContext, useMutation, useQuery, useSubscription} from "@apollo/client";
 import {TRANSACTIONS_QUERY, TRANSACTIONS_SUBSCRIPTION, UPDATE_TRANSACTION_MUTATION} from "./graphql";
 import {ITransaction, IUpdateTransactionInput} from "./interfaces";
+import {columns} from "./columns";
 import ErrorBoundary from "antd/lib/alert/ErrorBoundary";
 import {notification} from 'antd';
 
@@ -77,6 +78,10 @@ function Transactions() {
           {error && <ErrorBoundary message='Graphql Error' description='Graphql Error'>
             <div>{JSON.stringify(error)}</div>
           </ErrorBoundary>}
+          <Table
+        columns={columns(updateTransaction)}
+        dataSource={data.map((item, index) => ({...item, key: index}))}
+      />
         </div>
       );
   }
