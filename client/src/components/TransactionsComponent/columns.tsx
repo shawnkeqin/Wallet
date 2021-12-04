@@ -3,6 +3,7 @@ import {ApolloCache, DefaultContext, MutationFunctionOptions} from "@apollo/clie
 import {ITransaction, IUpdateTransactionInput} from "./interfaces";
 import {ColumnsType} from "antd/lib/table";
 import {Space, Tag} from "antd";
+import {getDateStringFromTs} from "../../utils";
 import Button from "antd/lib/button";
 
 export const columns = (
@@ -61,7 +62,7 @@ export const columns = (
     dataIndex: 'createdAt',
     render: (value) => (
       <Space size="middle">
-        <span>{value}</span>
+        <span>{getDateStringFromTs(+value)}</span>
       </Space>
     ),
   },
@@ -71,7 +72,7 @@ export const columns = (
     dataIndex: 'updatedAt',
     render: (value) => (
       <Space size="middle">
-        <span>{value}</span>
+        <span>{getDateStringFromTs(+value)}</span>
       </Space>
     )
   },
