@@ -53,6 +53,7 @@ npm start
 
 ## Technologies used:
 
+- Typescript
 - React
 - NestJS
 - GraphQL
