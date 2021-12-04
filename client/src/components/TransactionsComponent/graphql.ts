@@ -29,3 +29,18 @@ export const UPDATE_TRANSACTION_MUTATION = gql`
         }
     }
 `;
+
+export const TRANSACTIONS_SUBSCRIPTION = gql`
+    subscription transactionsAdded {
+        transactionsAdded {
+            id
+            amount
+            category
+            date
+            merchant_name
+            isFollowed
+            createdAt
+            updatedAt
+        }
+    }
+`;
