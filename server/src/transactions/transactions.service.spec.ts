@@ -9,6 +9,11 @@ import { HttpModule } from '@nestjs/axios';
 const mockTransactionsRepository = {};
 
 class TransactionServiceMock {
+
+  findAll(){
+    return [];
+  }
+
   update({merchant_name: string, isFollowed: boolean}) {
     return [];
   }
@@ -37,6 +42,12 @@ describe('TransactionsService', () => {
 
   it('should be defined', () => {
     expect(service).toBeDefined();
+  });
+
+  it('should find all transactions', async () => {
+    const findAllTransactions = jest.spyOn(service, 'findAll');
+    service.findAll();
+    expect(findAllTransactions).toHaveBeenCalledWith();
   });
 
   it('should update Transaction with expected params', async () => {

@@ -23,8 +23,8 @@ export class TransactionsService {
         @Inject('PUB_SUB') private readonly pubSub: PubSub,
       ) {}
 
-      findAll(): Promise<Transaction[]> {
-        return this.transactionRepository.find({ order: { id: 'ASC' } });
+      async findAll(): Promise<Transaction[]> {
+        return await this.transactionRepository.find({ order: { id: 'ASC' } });
       }
 
       async update({
