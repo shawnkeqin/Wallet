@@ -8,6 +8,12 @@ import { HttpModule } from '@nestjs/axios';
 
 const mockTransactionsRepository = {};
 
+class TransactionServiceMock {
+  update({merchant_name: string, isFollowed: boolean}) {
+    return [];
+  }
+}
+
 describe('TransactionsService', () => {
   let service: TransactionsService;
 
@@ -17,6 +23,7 @@ describe('TransactionsService', () => {
       providers: [TransactionsService,{
         provide: 'PUB_SUB',
         useValue: new PubSub(),
+        useClass: TransactionServiceMock,
       },
       {
         provide: getRepositoryToken(Transaction),
@@ -30,5 +37,13 @@ describe('TransactionsService', () => {
 
   it('should be defined', () => {
     expect(service).toBeDefined();
+  });
+
+  it('should update Transaction with expected params', async () => {
+    const updateTransactionSpy = jest.spyOn(service, 'update');
+    const merchant_name = 'Whole Foods';
+    const isFollowed = false;
+    service.update({merchant_name, isFollowed});
+    expect(updateTransactionSpy).toHaveBeenCalledWith({merchant_name, isFollowed});
   });
 });
