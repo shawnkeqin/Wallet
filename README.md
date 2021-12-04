@@ -51,6 +51,14 @@ Once done, add config as per .env.example file in client folder, then run to get
 npm start 
 ```
 
+## Testing
+
+Run the following command in the server folder:
+
+```
+npm run test:watch 
+```
+
 ## Technologies used:
 
 - Typescript
