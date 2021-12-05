@@ -52,6 +52,7 @@ Once done, add config as per .env.example file in client folder, then run to get
 npm start 
 ```
 
+I added some tests for FE and BE as well: 
 ## Unit & Integration Tests
 
 Run the following command in the server folder for Unit Testing:
