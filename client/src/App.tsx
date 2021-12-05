@@ -7,7 +7,7 @@ function App() {
   const { Title } = Typography;
   return (
     <div className="App">
-      <Title>(Bezos) Empire State of Wallet 👛</Title>
+      <Title>Bezos's Empire State of Wallet 👛</Title>
 <Transactions />
     </div>
   );
