@@ -65,6 +65,12 @@ Run the following command in the server folder for Integration Testing:
 npm run test:e2e
 ```
 
+Run the following command in the server folder for React Unit Testing:
+
+```
+npm test    
+```
+
 ## Technologies used:
 
 - Typescript
