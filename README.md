@@ -19,6 +19,8 @@ Build a simple web tool for Faris to calculate how much money he spends on Bezos
 
 ![Screenshot 2021-12-05 at 3 45 28 AM](https://user-images.githubusercontent.com/44067954/144722639-972f4d7f-d4ad-4875-bb2c-13cd024139f3.png)
 
+![Screenshot 2021-12-05 at 3 38 35 PM](https://user-images.githubusercontent.com/44067954/144738141-e78a0f30-f74e-43f0-887c-29154ca7fc55.png)
+
 
 ## Backend Setup 
 
@@ -63,6 +65,12 @@ Run the following command in the server folder for Integration Testing:
 
 ```
 npm run test:e2e
+```
+
+Run the following command in the server folder for React Unit Testing:
+
+```
+npm test    
 ```
 
 ## Technologies used:
