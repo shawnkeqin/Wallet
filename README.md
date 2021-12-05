@@ -17,9 +17,10 @@ Build a simple web tool for Faris to calculate how much money he spends on Bezos
 
 ## App
 
-![Screenshot 2021-12-05 at 3 45 28 AM](https://user-images.githubusercontent.com/44067954/144722639-972f4d7f-d4ad-4875-bb2c-13cd024139f3.png)
+![Screenshot 2021-12-05 at 3 41 20 PM](https://user-images.githubusercontent.com/44067954/144738231-4ae3f6a5-5e52-4ba2-8d57-76a5457aab66.png)
 
-![Screenshot 2021-12-05 at 3 38 35 PM](https://user-images.githubusercontent.com/44067954/144738141-e78a0f30-f74e-43f0-887c-29154ca7fc55.png)
+
+![Screenshot 2021-12-05 at 3 42 08 PM](https://user-images.githubusercontent.com/44067954/144738233-984b93f1-f2f6-450b-b592-2eb72a668085.png)
 
 
 ## Backend Setup 
