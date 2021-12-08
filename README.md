@@ -31,7 +31,7 @@ cd server
 npm install 
 ```
 
-Once done, add config as per .env.example file in client folder - then run the following command to get server up and running:
+Once done, add .env file as per .env.example file in client folder - then run the following command to get server up and running:
 
 ```
 npm start 
@@ -46,7 +46,7 @@ cd client
 npm install 
 ```
 
-Once done, add config as per .env.example file in client folder, then run to get client up and running: 
+Once done, add .env file as per .env.example file in client folder, then run to get client up and running: 
 
 ```
 npm start 
