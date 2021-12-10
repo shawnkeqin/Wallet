@@ -9,15 +9,8 @@ import Loading from "../LoadingComponent/Loading";
 import { Typography } from 'antd';
 import ErrorBoundary from "antd/lib/alert/ErrorBoundary";
 import {notification} from 'antd';
+import styles from './Transactions.module.css'; 
 
-const spacing = {
-    display: 'inline-block',
-    margin: '10px'
-}
-
-const tableStyle = {
-    margin:'20px'
-}
 
 function Transactions() {
     const { Title } = Typography;
@@ -82,7 +75,7 @@ function Transactions() {
       return (
         <div className="App">
         <div>
-        <div style={spacing}>
+        <div className={styles.spacing}>
               <Card size="small">
               Percentage Spent (On Bezos-related Companies): 
               <Title level={3}>
@@ -91,7 +84,7 @@ function Transactions() {
               </Card>
               </div>
               
-              <div style={spacing}>
+              <div className={styles.spacing}>
               <Card size="small">
               Amount Spent (On Bezos-related Companies): 
               <Title level={3}>
@@ -104,7 +97,7 @@ function Transactions() {
           {error && <ErrorBoundary message='Graphql Error' description='Graphql Error'>
             <div>{JSON.stringify(error)}</div>
           </ErrorBoundary>}
-          <div style={tableStyle}> 
+          <div className={styles.tableStyle}> 
           <Table
         columns={columns(updateTransaction)}
         dataSource={data.map((item, index) => ({...item, key: index}))}
