@@ -9,7 +9,6 @@
 Clone the repo and run the following commands in the server folder:
 
 ```
-git clone https://github.com/shawnkeqin/neo-tax-assignment.git
 cd server
 npm install 
 ```
